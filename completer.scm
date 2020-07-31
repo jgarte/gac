@@ -1,0 +1,93 @@
+(define 3-1 '((0 1 2) (1 2 3) (2 3 4) (3 4 5)
+              (4 5 6) (5 6 7) (6 7 8) (7 8 9)
+              (8 9 10) (9 10 11) (10 11 0)
+              (11 0 1)))
+
+(define 9-1 '((3 4 5 6 7 8 9 10 11)
+              (4 5 6 7 8 9 10 11 0)
+              (5 6 7 8 9 10 11 0 1)
+              (6 7 8 9 10 11 0 1 2)
+              (7 8 9 10 11 0 1 2 3)
+              (8 9 10 11 0 1 2 3 4)
+              (9 10 11 0 1 2 3 4 5)
+              (10 11 0 1 2 3 4 5 6)
+              (11 0 1 2 3 4 5 6 7)
+              (0 1 2 3 4 5 6 7 8)
+              (1 2 3 4 5 6 7 8 9)
+              (2 3 4 5 6 7 8 9 10)))
+
+(define s0 (list-ref 3-1 0))
+(define s1 (list-ref 3-1 1))
+(define s2 (list-ref 3-1 2))
+(define s3 (list-ref 3-1 3))
+(define s4 (list-ref 3-1 4))
+(define s5 (list-ref 3-1 5))
+(define s6 (list-ref 3-1 6))
+(define s7 (list-ref 3-1 7))
+(define s8 (list-ref 3-1 8))
+(define s9 (list-ref 3-1 9))
+(define s10 (list-ref 3-1 10))
+(define s11 (list-ref 3-1 11))
+
+
+(define c0 (list-ref 9-1 0))
+(define c1 (list-ref 9-1 1))
+(define c2 (list-ref 9-1 2))
+(define c3 (list-ref 9-1 3))
+(define c4 (list-ref 9-1 4))
+(define c5 (list-ref 9-1 5))
+(define c6 (list-ref 9-1 6))
+(define c7 (list-ref 9-1 7))
+(define c8 (list-ref 9-1 8))
+(define c9 (list-ref 9-1 9))
+(define c10 (list-ref 9-1 10))
+(define c11 (list-ref 9-1 11))
+
+
+(define a0 (append s0 c0))
+(define a1 (append s1 c1))
+(define a2 (append s2 c2))
+(define a3 (append s3 c3))
+(define a4 (append s4 c4))
+(define a5 (append s5 c5))
+(define a6 (append s6 c6))
+(define a7 (append s7 c7))
+(define a8 (append s8 c8))
+(define a9 (append s9 c9))
+(define a10 (append s10 c10))
+(define a11 (append s11 c11))
+
+(define b0 (cons s0 c0))
+(define b1 (cons s1 c1))
+(define b2 (cons s2 c2))
+(define b3 (cons s3 c3))
+(define b4 (cons s4 c4))
+(define b5 (cons s5 c5))
+(define b6 (cons s6 c6))
+(define b7 (cons s7 c7))
+(define b8 (cons s8 c8))
+(define b9 (cons s9 c9))
+(define b10 (cons s10 c10))
+(define b11 (cons s11 c11))
+
+(reverse b0)
+
+(identity b0)
+
+(define (choose-three)
+  (list-ref 3-1 (random 12)))
+
+(define (choose-nine)
+  (list-ref 9-1 (random 12)))
+
+(define (choose-three-nine)
+  (cons (choose-three) (choose-nine)))
+
+(choose-three-nine)
+
+(reverse (append b0 b1))
+(display b0)
+(display b1)
+
+;; add hash map for converting to lilypond tokens
+;; add keyword argument for choosing between cons and append
