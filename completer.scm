@@ -1,20 +1,89 @@
-(define 3-1 '((0 1 2) (1 2 3) (2 3 4) (3 4 5)
-              (4 5 6) (5 6 7) (6 7 8) (7 8 9)
-              (8 9 10) (9 10 11) (10 11 0)
-              (11 0 1)))
+(define-module (gac sg1)
+  #:use-module (srfi srfi-1)
 
-(define 9-1 '((3 4 5 6 7 8 9 10 11)
-              (4 5 6 7 8 9 10 11 0)
-              (5 6 7 8 9 10 11 0 1)
-              (6 7 8 9 10 11 0 1 2)
-              (7 8 9 10 11 0 1 2 3)
-              (8 9 10 11 0 1 2 3 4)
-              (9 10 11 0 1 2 3 4 5)
-              (10 11 0 1 2 3 4 5 6)
-              (11 0 1 2 3 4 5 6 7)
-              (0 1 2 3 4 5 6 7 8)
-              (1 2 3 4 5 6 7 8 9)
-              (2 3 4 5 6 7 8 9 10)))
+  #:export (%dyads
+            %decachords
+            %trichords
+            transpose-all))
+
+(define %dyads '((0 1) (0 2) (0 3) (0 4) (0 5) (0 6)))
+
+(define %decachords '((0 1 2 3 4 5 6 7 8 9)
+                      (0 1 2 3 4 5 6 7 8 10)
+                      (0 1 2 3 4 5 6 7 9 10)
+                      (0 1 2 3 4 5 6 8 9 10)
+                      (0 1 2 3 4 5 7 8 9 10)
+                      (0 1 2 3 4 6 7 8 9 10)))
+
+(define %trichords '((0 1 2) (0 1 3) (0 2 3) (0 1 4)
+                     (0 3 4) (0 1 5) (0 4 5) (0 1 6)
+                     (0 5 6) (0 2 4) (0 2 5) (0 3 5)
+                     (0 2 6) (0 4 6) (0 2 7) (0 3 6)
+                     (0 3 7) (0 4 7) (0 4 8)))
+
+(define
+  (transpositions l)
+  (define
+    (rot o)
+    (map
+     (lambda (e)
+       (remainder (+ o e) 12)) l))
+  (map rot (iota 12)))
+
+(define (transpose-all chords)
+  (map transpositions chords))
+
+(transpose-all %dyads)
+(transpose-all %trichords)
+(transpose-all %decachords)
+
+;; (define
+;;   (transpositions l)
+;;   (letrec
+;;       ((rot
+;;         (lambda (o)
+;;           (map
+;;            (lambda (e)
+;;              (remainder (+ o e) 12))
+;;            l))))
+;;     (map rot (iota 12))))
+
+
+(unfold
+ (lambda (xs)
+   (= (car xs) 12))
+ values
+ (lambda (xs) (map 1+ xs))
+ '(0 1 2))
+
+(map (lambda (i) (list i (remainder (+ 1 i) 12) (remainder (+ 2 i) 12))) (iota 12))
+
+(let
+    loop
+  ((res '())
+   (i1 0)
+   (i2 1)
+   (i3 3)
+   (cnt 12))
+  (if (zero? cnt)
+      res
+      (loop
+       (cons (list i1 i2 i3) res)
+       (1+ i1)
+       (1+ i2)
+       (1+ i3)
+       (1- cnt))))
+
+(if (zero? cnt) res" => (if (zero? cnt) (reverse res)
+
+(define (transpositions l) (letrec ((rot (lambda (o) (map (lambda (e) (remainder (+ o e) 12)) l)))) (map rot (iota 12))))
+
+(modulo 13 12)
+
+(unfold (lambda (x) (> x 10))
+        (lambda (x) (* x x))
+	      (lambda (x) (+ x 1))
+	      1)
 
 (define s0 (list-ref 3-1 0))
 (define s1 (list-ref 3-1 1))
@@ -28,7 +97,6 @@
 (define s9 (list-ref 3-1 9))
 (define s10 (list-ref 3-1 10))
 (define s11 (list-ref 3-1 11))
-
 
 (define c0 (list-ref 9-1 0))
 (define c1 (list-ref 9-1 1))
@@ -91,3 +159,54 @@
 
 ;; add hash map for converting to lilypond tokens
 ;; add keyword argument for choosing between cons and append
+
+(identity a0)
+
+(identity 3-1)
+
+(define
+  (reverse-all lst)
+  (map
+   (lambda (x) (reverse x))
+   lst))
+
+(define
+  (transpose lst)
+  (map
+   (lambda (x) (reverse x))
+   lst))
+
+(reverse-all 3-1)
+
+(define
+  (transpose lst)
+  (map
+   (lambda (x) (1+ (identity x)))
+   lst))
+
+
+(define s0 (list-ref 3-1 0))
+
+(list-ref 3-1 15)
+
+(car 3-1)
+
+(length 3-1)
+
+
+(if (= (random 2) 0)
+    (if (= (random 12) 6)
+        "play a soft note"
+        "play a loud note")
+    "play a high note")
+
+(transpose 3-1)
+
+(reverse 3-1)
+
+(reverse-all 3-1)
+
+(map 1+ '(1 2 3))
+
+(cons s0 s1)
+(append s0 s1)
