@@ -11,8 +11,10 @@
             %octachords
             %nonachords
             %decachords
-            %undecachords
+            %undecachord
             %dodecachord))
+
+(define %monad '(0))
 
 (define %dyads '((0 1) (0 2) (0 3) (0 4) (0 5) (0 6)))
 
@@ -22,7 +24,7 @@
                      (0 2 6) (0 4 6) (0 2 7) (0 3 6)
                      (0 3 7) (0 4 7) (0 4 8)))
 
-(define %tetrachords '((0 1 2 3) (0 1 2 4) (0 2 3 4) 
+(define %tetrachords '((0 1 2 3) (0 1 2 4) (0 2 3 4)
 		                 (0 1 3 4) (0 1 2 5) (0 3 4 5)
 		                 (0 1 2 6) (0 4 5 6) (0 1 2 7)
 		                 (0 1 4 5) (0 1 5 6) (0 1 6 7)
@@ -143,3 +145,6 @@
                       (0 1 2 3 4 5 7 8 9 10)
                       (0 1 2 3 4 6 7 8 9 10)))
 
+(define %undecachord '(0 1 2 3 4 5 6 7 8 9 10))
+
+(define %dodecachord '(0 1 2 3 4 5 6 7 8 9 10 11))
