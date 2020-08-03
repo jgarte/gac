@@ -1,4 +1,4 @@
-(define-module (gac sg1)
+'(define-module (gac sg1)
   #:use-module (srfi srfi-1)
 
   #:export (%monad
