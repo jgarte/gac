@@ -3,6 +3,7 @@
         ;; integer->scientificnote
         integer->lilynote
         ;; lilynote->integer
+        scientificnote->lilynote
         )
 
 ;; representation 1: integers
@@ -156,4 +157,14 @@
 
 ;; (define (lilynote->integer str)
 ;;   )
+
+
+(define scientificnote->lilynote
+  (=>* scientificnote->integer integer->lilynote))
+
+(TEST
+ > (scientificnote->lilynote 'C3)
+ "c"
+ > (scientificnote->lilynote 'C4)
+ "c'")
 
