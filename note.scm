@@ -1,5 +1,9 @@
 ;; representation 1: integers
 
+;; This could also be called AbsPitch, as in
+;; https://github.com/Euterpea/EuterpeaLite/blob/master/EuterpeaLite/Music.lhs
+
+
 
 ;; representation 2: scientificnote (symbols)  c4
 ;; https://en.wikipedia.org/wiki/Scientific_pitch_notation
