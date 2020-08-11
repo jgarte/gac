@@ -55,7 +55,7 @@
                    (lambda ()
                      (let* ((v (xone (cdr l))))
                        (cond ((pair? v)
-                              (display " = {\n" port)
+                              (display " {\n" port)
                               (for-each (lambda (l)
                                           (display " " port)
                                           (lf l #t))
@@ -66,7 +66,8 @@
                               (lf v #t))))
                      (newline port))))
               (cond ((keyword? a)
-                     (displayl port "\\" (keyword->string a)) 
+                     (displayl port "\\" (keyword->string a))
+                     (display " =" port)
                      (process-rest))
                     ((symbol? a)
                      (if is-header?
@@ -100,7 +101,7 @@
         (call-with-output-string ""
           (cut lilyscore-display v <>)))
  > (tst '(#:version "2.3.4"))
- "\\version \"2.3.4\"\n"
+ "\\version = \"2.3.4\"\n"
  > (tst '(#:header ((=tagline "foo") (=author "bar"))))
  "\\header = {
  tagline = \"foo\"
@@ -119,8 +120,8 @@
               (A3 F2)
               (10 44 23))))
  > (tst tval)
- "\\version \"2.17.2\"
-\\glanguage \"english\"
+ "\\version = \"2.17.2\"
+\\glanguage = \"english\"
 \\header = {
  tagline = \"foo\"
  author = \"bar\"
