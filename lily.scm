@@ -47,8 +47,7 @@
   )
 
 (define (lilyscore-display l port)
-  (let lf ((l l)
-           (is-header? #f))
+  (let lf ((l l))
     (xcond ((pair? l)
             (let ((a (car l))
                   (process-rest
@@ -59,41 +58,45 @@
                        (for-each (lambda (option)
                                    ;; simplified; for more see http://lilypond.org/doc/v2.18/Documentation/notation/creating-and-referencing-contexts#index-new-contexts
                                    (xcond ((symbol? option)
-                                           (display (symbol->string option) port)
-                                           (display " " port))))
+                                           (display " " port)
+                                           (display (symbol->string option) port))))
                                  options)
-                       (cond ((pair? v)
+                       (cond ((list? v)
                               (display " {\n" port)
                               (for-each (lambda (l)
                                           (display " " port)
-                                          (lf l #t))
+                                          (lf l))
                                         v)
                               (display "}" port))
                              (else
                               (display " " port)
-                              (lf v #t))))
+                              (lf v))))
                      (newline port))))
               (cond ((keyword? a)
                      (displayl port "\\" (keyword->string a))
                      (process-rest))
                     ((symbol? a)
-                     (if is-header?
+                     (if (=symbol? a)
                          (begin
-                           (assert (=symbol? a))
                            (displayl port (=symbol->string a) " =")
                            (process-rest))
-                         (begin
-                           (assert (eq? a 'lexps))
-                           (displayln "{" port)
-                           (for-each (lambda (chord)
-                                       (chord-display chord port)
-                                       (newline port))
-                                     (cdr l))
-                           (displayln "}" port))))
+                         (if (eq? a 'lexps)
+                             (begin
+                               (displayln "{" port)
+                               (for-each (lambda (chord)
+                                           (chord-display chord port)
+                                           (newline port))
+                                         (cdr l))
+                               (displayln "}" port))
+                             ;; should be a note symbol => a single chord
+                             (chord-display l port))))
+                    ((integer? a)
+                     ;; abspitch => a single chord
+                     (chord-display l port))
                     (else
                      ;; treat l as an actual list, not as an "AST" node
                      (for-each (lambda (v)
-                                 (lf v is-header?))
+                                 (lf v))
                                l)))))
            ((string? l)
             (write l port)))))
@@ -125,7 +128,7 @@
                   (=author "bar")))
        (lexps (C4 E4 G4)
               (A3 F2)
-              (10 44 23))
+              (10 44 23)) ;; ok bogus to have 2 scores, but for our test...
        (#:score
         ((#:new Staff
                 ((C4 E4 G4)
@@ -144,6 +147,14 @@
 <c' e' g'>1
 <a f,>1
 <as' gs'''' b''>1
+}
+\\score {
+ \\new Staff {
+ <c' e' g'>1 <a f,>1 <as' gs'''' b''>1}
+ \\layout {
+}
+ \\midi {
+}
 }
 "
  )
