@@ -1,7 +1,7 @@
 (export lilyscore->file
         #!optional
-        display-chord
-        display-lilyscore)
+        chord-display
+        lilyscore-display)
 
 
 (define (display-items port l-of-str)
@@ -29,7 +29,7 @@
          (substring s 1 l))))
 
 
-(define (display-chord l port)
+(define (chord-display l port)
   (display "<" port)
   (display-items port
                  (list-join (map (lambda (note)
@@ -44,7 +44,7 @@
   (display ">1" port) ;; XX for now
   )
 
-(define (display-lilyscore l port)
+(define (lilyscore-display l port)
   (let lf ((l l)
            (is-header? #f))
     (xcond ((pair? l)
@@ -76,7 +76,7 @@
                            (assert (eq? a 'lexps))
                            (displayln "{" port)
                            (for-each (lambda (chord)
-                                       (display-chord chord port)
+                                       (chord-display chord port)
                                        (newline port))
                                      (cdr l))
                            (displayln "}" port))))
@@ -90,13 +90,13 @@
 
 (define (lilyscore->file l path)
   (call-with-output-file path
-    (cut display-lilyscore l <>)))
+    (cut lilyscore-display l <>)))
 
 
 (TEST
  > (def (tst v)
         (call-with-output-string ""
-          (cut display-lilyscore v <>)))
+          (cut lilyscore-display v <>)))
  > (tst '(#:version "2.3.4"))
  "\\version \"2.3.4\"\n"
  > (tst '(#:header ((=tagline "foo") (=author "bar"))))
