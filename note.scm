@@ -1,3 +1,10 @@
+
+(export scientificnote->integer
+        ;; integer->scientificnote
+        integer->lilynote
+        ;; lilynote->integer
+        )
+
 ;; representation 1: integers
 
 ;; This could also be called AbsPitch, as in
