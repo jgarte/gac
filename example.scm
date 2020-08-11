@@ -13,7 +13,7 @@
                (=author "")))
     (#:score
      ((#:new Staff
-             (lexps ,@chords))
+             (,@chords))
       (#:layout ())
       (#:midi ())))))
 
