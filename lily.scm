@@ -1,7 +1,11 @@
-(define (displayl port . l-of-str)
+
+(define (display-items port l-of-str)
   (for-each (lambda (str)
 	      (display str port))
 	    l-of-str))
+
+(define (displayl port . l-of-str)
+  (display-items port l-of-str))
 
 
 (define (keyword->string k)
@@ -21,63 +25,104 @@
 
 
 (define (display-chord l port)
-  (diplayl port
-           "<"
-           (map note->string l)
-           ">"))
+  (display "<" port)
+  (display-items port
+                 (list-join (map (lambda (note)
+                                   (xcond ((integer? note)
+                                           (integer->lilynote note))
+                                          ((symbol? note)
+                                           (scientificnote->lilynote note))
+                                          ;; could pass through strings, too
+                                          ))
+                                 l)
+                            " "))
+  (display ">1" port) ;; XX for now
+  )
+
+(define (lily-print l port)
+  (let lf ((l l)
+           (is-header? #f))
+    (xcond ((pair? l)
+            (let ((a (car l))
+                  (process-rest
+                   (lambda ()
+                     (let* ((v (xone (cdr l))))
+                       (cond ((pair? v)
+                              (display " = {\n" port)
+                              (for-each (lambda (l)
+                                          (display " " port)
+                                          (lf l #t))
+                                        v)
+                              (display "}" port))
+                             (else
+                              (display " " port)
+                              (lf v #t))))
+                     (newline port))))
+              (cond ((keyword? a)
+                     (displayl port "\\" (keyword->string a)) 
+                     (process-rest))
+                    ((symbol? a)
+                     (if is-header?
+                         (begin
+                           (assert (=symbol? a))
+                           (displayl port (=symbol->string a) " =")
+                           (process-rest))
+                         (begin
+                           (assert (eq? a 'lexps))
+                           (displayln "{" port)
+                           (for-each (lambda (chord)
+                                       (display-chord chord port)
+                                       (newline port))
+                                     (cdr l))
+                           (displayln "}" port))))
+                    (else
+                     ;; treat l as an actual list, not as an "AST" node
+                     (for-each (lambda (v)
+                                 (lf v is-header?))
+                               l)))))
+           ((string? l)
+            (write l port)))))
 
 (define (lily->file l path)
   (call-with-output-file path
-    (lambda (port)
-      (let lf ((l l)
-	       (is-header? #f))
-	(xcond ((pair? l)
-		(let ((a (car l))
-                      (process-rest
-                       (lambda ()
-                         (let* ((v (xone (cdr l))))
-                           (cond ((pair? v)
-                                  (display " = {\n" port)
-                                  (for-each (lambda (l)
-                                              (display " " port)
-                                              (lf l #t))
-                                            v)
-                                  (display "}" port))
-                                 (else
-                                  (display " " port)
-                                  (lf v #t))))
-                         (newline port))))
-                  (cond ((keyword? a)
-                         (displayl port "\\" (keyword->string a)) 
-                         (process-rest))
-                        ((symbol? a)
-                         (if is-header?
-                             (begin
-                               (assert (=symbol? a))
-                               (displayl port (=symbol->string a) " =")
-                               (process-rest))
-                             (display-chord l port)))
-                        (else
-                         ;; treat l as an actual list, not as an "AST" node
-                         (for-each (lambda (v)
-                                     (lf v is-header?))
-                                   l)))))
-	       ((string? l)
-		(write l port)))))))
+    (cut lily-print l <>)))
 
-(define h
-  `((#:version "2.17.2")
-    (#:glanguage "english")
-    (#:header ((=tagline "foo")
-               (=author "bar")))
-    (c4 e4 g4)))
 
-(define (t1)
-  (lily->file '(#:version "2.3.4") "t1"))
+(TEST
+ > (def (tst v)
+        (call-with-output-string ""
+          (cut lily-print v <>)))
+ > (tst '(#:version "2.3.4"))
+ "\\version \"2.3.4\"\n"
+ > (tst '(#:header ((=tagline "foo") (=author "bar"))))
+ "\\header = {
+ tagline = \"foo\"
+ author = \"bar\"
+}\n")
 
-(define (t2)
-  (lily->file '(#:header ((=tagline "foo") (=author "bar"))) "t2"))
 
-(define (t)
-  (lily->file h "foo.ly"))
+(TEST
+ > (define tval
+     ;; "lilyscore"
+     `((#:version "2.17.2")
+       (#:glanguage "english")
+       (#:header ((=tagline "foo")
+                  (=author "bar")))
+       (lexps (C4 E4 G4)
+              (A3 F2)
+              (10 44 23))))
+ > (tst tval)
+ "\\version \"2.17.2\"
+\\glanguage \"english\"
+\\header = {
+ tagline = \"foo\"
+ author = \"bar\"
+}
+{
+<c' e' g'>1
+<a f,>1
+<as' gs'''' b''>1
+}
+"
+ )
 
