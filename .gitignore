@@ -1,7 +1,4 @@
 /lib
-.gambc
-.gambcini
-.gambcini.scm
 .test-*.scm
 *.ly
 *.midi
