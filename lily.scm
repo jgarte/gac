@@ -63,7 +63,7 @@
                                   (display " " port)
                                   (lf v #t))))
                          (newline port))))
-                  (cond ((_keyword? a)
+                  (cond ((keyword? a)
                          (displayl port "\\" (keyword->string a)) 
                          (process-rest))
                         ((symbol? a)
