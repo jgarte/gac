@@ -11,7 +11,11 @@
     (#:language "english")
     (#:header ((=tagline "")
                (=author "")))
-    (lexps ,@chords)))
+    (#:score
+     ((#:new Staff
+             (lexps ,@chords))
+      (#:layout ())
+      (#:midi ())))))
 
 ;; (define (chords->file chords)
 ;;   (lilyscore->file (chords->lilyscore chords)))
