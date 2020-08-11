@@ -1,3 +1,5 @@
+(require)
+
 '(define-module (gac sg1)
   #:use-module (srfi srfi-1)
 

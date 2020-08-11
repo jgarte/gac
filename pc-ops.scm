@@ -1,3 +1,5 @@
+(require sg1)
+
 '(define-module (gac pc-ops)
   #:use-module (gac sg1)
   #:use-module (srfi srfi-1)

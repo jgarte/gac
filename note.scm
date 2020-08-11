@@ -1,3 +1,4 @@
+(require)
 
 (export scientificnote->integer
         ;; integer->scientificnote

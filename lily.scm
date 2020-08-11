@@ -1,3 +1,5 @@
+(require note)
+
 (export lilyscore->file
         #!optional
         chord-display
