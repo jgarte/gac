@@ -53,7 +53,15 @@
             (let ((a (car l))
                   (process-rest
                    (lambda ()
-                     (let* ((v (xone (cdr l))))
+                     (let* ((r (cdr l))
+                            (v (last r))
+                            (options (butlast r)))
+                       (for-each (lambda (option)
+                                   ;; simplified; for more see http://lilypond.org/doc/v2.18/Documentation/notation/creating-and-referencing-contexts#index-new-contexts
+                                   (xcond ((symbol? option)
+                                           (display (symbol->string option) port)
+                                           (display " " port))))
+                                 options)
                        (cond ((pair? v)
                               (display " {\n" port)
                               (for-each (lambda (l)
@@ -117,7 +125,14 @@
                   (=author "bar")))
        (lexps (C4 E4 G4)
               (A3 F2)
-              (10 44 23))))
+              (10 44 23))
+       (#:score
+        ((#:new Staff
+                ((C4 E4 G4)
+                 (A3 F2)
+                 (10 44 23)))
+         (#:layout ())
+         (#:midi ())))))
  > (tst tval)
  "\\version \"2.17.2\"
 \\glanguage \"english\"
