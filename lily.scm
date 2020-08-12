@@ -67,6 +67,7 @@
                           (display (symbol->string option) port))))
                      options)
            (pmatch v
+
              (list?
               (display " {\n" port)
               (for-each (lambda (l)
@@ -74,22 +75,28 @@
                           (ld l))
                         v)
               (display "}" port))
+             
              (else
               (display " " port)
               (ld v))))
+
          (newline port))
 
        (let ((a (car l)))
               
          (pmatch a
+
            (keyword?
             (displayl port "\\" (keyword->string a))
             (process-rest))
+
            (symbol?
             (pmatch a
+
               (=symbol?
                (displayl port (=symbol->string a) " =")
                (process-rest))
+
               ('lexps
                (displayln "{" port)
                (for-each (lambda (chord)
@@ -97,6 +104,7 @@
                            (newline port))
                          (cdr l))
                (displayln "}" port))
+
               (else
                ;; should be a note symbol => a single chord
                (chord-display l port))))
@@ -104,6 +112,7 @@
            (integer?
             ;; abspitch => a single chord
             (chord-display l port))
+
            (else
             ;; treat l as an actual list, not as an "AST" node
             (for-each ld l)))))
