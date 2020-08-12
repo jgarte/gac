@@ -1,4 +1,3 @@
-/lib
 .test-*.scm
 *.ly
 *.midi
