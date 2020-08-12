@@ -18,6 +18,14 @@ home) from its home dir:
 
     /opt/chj/chjize/bin/mod-user
 
+## Checkout
+
+After cloning this repo as the non-root user:
+
+    cd gac
+    git submodule init
+    git submodule update
+
 ## Run
 
 As the non-root user:
