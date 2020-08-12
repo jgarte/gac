@@ -83,20 +83,21 @@
             (displayl port "\\" (keyword->string a))
             (process-rest))
            (symbol?
-            (if (=symbol? a)
-                (begin
-                  (displayl port (=symbol->string a) " =")
-                  (process-rest))
-                (if (eq? a 'lexps)
-                    (begin
-                      (displayln "{" port)
-                      (for-each (lambda (chord)
-                                  (chord-display chord port)
-                                  (newline port))
-                                (cdr l))
-                      (displayln "}" port))
-                    ;; should be a note symbol => a single chord
-                    (chord-display l port))))
+            (pmatch a
+              (=symbol?
+               (displayl port (=symbol->string a) " =")
+               (process-rest))
+              ('lexps
+               (displayln "{" port)
+               (for-each (lambda (chord)
+                           (chord-display chord port)
+                           (newline port))
+                         (cdr l))
+               (displayln "}" port))
+              (else
+               ;; should be a note symbol => a single chord
+               (chord-display l port))))
+
            (integer?
             ;; abspitch => a single chord
             (chord-display l port))
