@@ -47,7 +47,7 @@
   )
 
 (define (lilyscore-display l port)
-  (let lf ((l l))
+  (let ld ((l l))
     (xcond ((pair? l)
             (let ((a (car l))
                   (process-rest
@@ -65,12 +65,12 @@
                               (display " {\n" port)
                               (for-each (lambda (l)
                                           (display " " port)
-                                          (lf l))
+                                          (ld l))
                                         v)
                               (display "}" port))
                              (else
                               (display " " port)
-                              (lf v))))
+                              (ld v))))
                      (newline port))))
               (cond ((keyword? a)
                      (displayl port "\\" (keyword->string a))
@@ -95,9 +95,7 @@
                      (chord-display l port))
                     (else
                      ;; treat l as an actual list, not as an "AST" node
-                     (for-each (lambda (v)
-                                 (lf v))
-                               l)))))
+                     (for-each ld l)))))
            ((string? l)
             (write l port)))))
 
