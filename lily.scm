@@ -35,12 +35,13 @@
   (display "<" port)
   (display-items port
                  (list-join (map (lambda (note)
-                                   (xcond ((integer? note)
-                                           (integer->lilynote note))
-                                          ((symbol? note)
-                                           (scientificnote->lilynote note))
-                                          ;; could pass through strings, too
-                                          ))
+                                   (pmatch note
+                                     (integer?
+                                      (integer->lilynote note))
+                                     (symbol?
+                                      (scientificnote->lilynote note))
+                                     ;; could pass through strings, too
+                                     ))
                                  l)
                             " "))
   (display ">1" port) ;; XX for now
@@ -48,58 +49,63 @@
 
 (define (lilyscore-display l port)
   (let ld ((l l))
-    (xcond ((pair? l)
+    (pmatch l
+      (pair?
 
-            (define (process-rest)
-              (let* ((r (cdr l))
-                     (v (last r))
-                     (options (butlast r)))
-                (for-each (lambda (option)
-                            ;; simplified; for more see http://lilypond.org/doc/v2.18/Documentation/notation/creating-and-referencing-contexts#index-new-contexts
-                            (xcond ((symbol? option)
-                                    (display " " port)
-                                    (display (symbol->string option) port))))
-                          options)
-                (cond ((list? v)
-                       (display " {\n" port)
-                       (for-each (lambda (l)
-                                   (display " " port)
-                                   (ld l))
-                                 v)
-                       (display "}" port))
-                      (else
-                       (display " " port)
-                       (ld v))))
-              (newline port))
+       (define (process-rest)
+         (let* ((r (cdr l))
+                (v (last r))
+                (options (butlast r)))
+           (for-each (lambda (option)
+                       ;; simplified; for more see http://lilypond.org/doc/v2.18/Documentation/notation/creating-and-referencing-contexts#index-new-contexts
+                       (pmatch option
+                         (symbol?
+                          (display " " port)
+                          (display (symbol->string option) port))))
+                     options)
+           (pmatch v
+             (list?
+              (display " {\n" port)
+              (for-each (lambda (l)
+                          (display " " port)
+                          (ld l))
+                        v)
+              (display "}" port))
+             (else
+              (display " " port)
+              (ld v))))
+         (newline port))
 
-            (let ((a (car l)))
+       (let ((a (car l)))
               
-              (cond ((keyword? a)
-                     (displayl port "\\" (keyword->string a))
-                     (process-rest))
-                    ((symbol? a)
-                     (if (=symbol? a)
-                         (begin
-                           (displayl port (=symbol->string a) " =")
-                           (process-rest))
-                         (if (eq? a 'lexps)
-                             (begin
-                               (displayln "{" port)
-                               (for-each (lambda (chord)
-                                           (chord-display chord port)
-                                           (newline port))
-                                         (cdr l))
-                               (displayln "}" port))
-                             ;; should be a note symbol => a single chord
-                             (chord-display l port))))
-                    ((integer? a)
-                     ;; abspitch => a single chord
-                     (chord-display l port))
-                    (else
-                     ;; treat l as an actual list, not as an "AST" node
-                     (for-each ld l)))))
-           ((string? l)
-            (write l port)))))
+         (pmatch a
+           (keyword?
+            (displayl port "\\" (keyword->string a))
+            (process-rest))
+           (symbol?
+            (if (=symbol? a)
+                (begin
+                  (displayl port (=symbol->string a) " =")
+                  (process-rest))
+                (if (eq? a 'lexps)
+                    (begin
+                      (displayln "{" port)
+                      (for-each (lambda (chord)
+                                  (chord-display chord port)
+                                  (newline port))
+                                (cdr l))
+                      (displayln "}" port))
+                    ;; should be a note symbol => a single chord
+                    (chord-display l port))))
+           (integer?
+            ;; abspitch => a single chord
+            (chord-display l port))
+           (else
+            ;; treat l as an actual list, not as an "AST" node
+            (for-each ld l)))))
+
+      (string?
+       (write l port)))))
 
 (define (lilyscore->file l path)
   (call-with-output-file path
