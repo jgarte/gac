@@ -35,13 +35,15 @@
   (display "<" port)
   (display-items port
                  (list-join (map (lambda (note)
-                                   (pmatch note
-                                     (integer?
-                                      (integer->lilynote note))
-                                     (symbol?
-                                      (scientificnote->lilynote note))
-                                     ;; could pass through strings, too
-                                     ))
+                                   ((pmatch note
+                                      (integer? integer->lilynote)
+                                      (symbol? scientificnote->lilynote)
+                                      ;; could pass through strings, too
+                                      (string? identity
+                                               ;; just delete the next
+                                               ;; form to enable them
+                                               (error "strings not OK for now")))
+                                    note))
                                  l)
                             " "))
   (display ">1" port) ;; XX for now
