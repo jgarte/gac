@@ -57,7 +57,10 @@
                 (v (last r))
                 (options (butlast r)))
            (for-each (lambda (option)
-                       ;; simplified; for more see http://lilypond.org/doc/v2.18/Documentation/notation/creating-and-referencing-contexts#index-new-contexts
+                       ;; simplified; for more see
+                       ;; http://lilypond.org/doc/v2.18/Documentation
+                       ;; /notation/creating-and-referencing-contexts
+                       ;; #index-new-contexts
                        (pmatch option
                          (symbol?
                           (display " " port)
