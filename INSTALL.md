@@ -19,8 +19,8 @@ home) from its home dir:
     /opt/chj/chjize/bin/mod-user
 
 For this to take proper effect you need to make a fresh login as that
-user. (It will ask to run ~/.chj-home/init which is recommended you
-do.)
+user. It will ask to run ~/.chj-home/init which you should do (it will
+symlink ~/.emacs to the chj-emacs repo and set up other things).
 
 
 ## Checkout
