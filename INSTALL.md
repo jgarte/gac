@@ -8,7 +8,7 @@ is mine", then as root:
 
     make gambit
 
-And to use Emacs as root:
+And to use Emacs, as root:
 
     make emacs
 
