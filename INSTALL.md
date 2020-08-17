@@ -18,6 +18,11 @@ home) from its home dir:
 
     /opt/chj/chjize/bin/mod-user
 
+For this to take proper effect you need to make a fresh login as that
+user. (It will ask to run ~/.chj-home/init which is recommended you
+do.)
+
+
 ## Checkout
 
 After cloning this repo as the non-root user:
