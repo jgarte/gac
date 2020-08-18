@@ -52,10 +52,39 @@
   (cons sc1 sc2))
 
 (define (choose-sc setclass)
-  (list-ref setclass (random (length setclass))))
+  (list-ref setclass (random-integer (length setclass))))
 
 ;; this can be used with get-sc e.g. (sc1+ (get-sc %trichords 1))
 
 (define (sc1+ setclass)
-  (map (lambda (x) (1+ x)))
-   setclass)
+  (map (lambda (x) (1+ x))
+       setclass))
+
+'(defmacro (ntimes n generator)
+ (make-list! n (lambda () ())))
+
+(def (tcomplicated)
+     (list (make-list! 3 (lambda () (choose-sc %trichords)))
+           (make-list! 4 (lambda () (choose-sc %hexachords)))))
+
+(def (t)
+     (list (ntimes 3 (choose-sc %trichords))
+           (ntimes 4 (choose-sc %hexachords))))
+
+
+(def progression? (list-of (list-of integer?)))
+
+
+;; (nrand-progession 3 %trichords 4 %tetrachords 6 %hexachords ...)
+(def nrand-progression
+     (lambda args -> progression?
+        (pmatch
+         args
+         (pair?
+          (let-list ((n chords . args*) args)
+                    (append
+                     (make-list! n (lambda () (choose-sc chords)))
+                     (apply nrand-progression args*))))
+         (null?
+          '()))))
+
