@@ -88,3 +88,9 @@
          (null?
           '()))))
 
+
+(def (car-cdr-chord chord)
+     (let ((chosen-chord (choose-sc chord)))
+       (cons (list (car chosen-chord))
+             (list (cdr chosen-chord)))))
+
