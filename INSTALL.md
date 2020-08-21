@@ -42,3 +42,17 @@ As the non-root user:
     > (run-tests ".")  ;; run just the tests for the files in this dir
     > (lily %tetrachords) ;; to generate a score
 
+## Pull
+
+To update to upstream changes, run:
+
+    cd gac
+    git pull
+    git submodule update
+
+then restart Gambit via `,q` or freshly starting Emacs. If you get
+errors or warnings, run `rm lib/*.o*` and restart Gambit again (this
+can happen when macros are changed and the modules using them have no
+changes themselves (the build system is currently too naive to track
+macro usage)).
+
