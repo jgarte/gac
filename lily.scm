@@ -72,10 +72,15 @@
 
              (list?
               (display " {\n" port)
-              (for-each (lambda (l)
-                          (display " " port)
-                          (ld l))
-                        v)
+              (if (and (pair? v)
+                       (integer? (first v)))
+                  ;; v is a single chord
+                  (ld v)
+                  ;; v contains sublists (= chords)
+                  (for-each (lambda (l)
+                              (display " " port)
+                              (ld l))
+                            v))
               (display "}" port))
              
              (else
