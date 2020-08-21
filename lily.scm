@@ -30,21 +30,26 @@
     (and (>= l 2)
          (substring s 1 l))))
 
+(def (note->string note) -> string?
+  ((pmatch note
+           (integer? integer->lilynote)
+           (symbol? scientificnote->lilynote)
+           ;; could pass through strings, too
+           (string? identity
+                    ;; just delete the next
+                    ;; form to enable them
+                    (error "strings not OK for now")))
+   note))
+
+(define (note-display note port)
+  (display-items port (list (note->string note)
+                            "1" ;; XX for now
+                            )))
 
 (define (chord-display l port)
   (display "<" port)
   (display-items port
-                 (list-join (map (lambda (note)
-                                   ((pmatch note
-                                      (integer? integer->lilynote)
-                                      (symbol? scientificnote->lilynote)
-                                      ;; could pass through strings, too
-                                      (string? identity
-                                               ;; just delete the next
-                                               ;; form to enable them
-                                               (error "strings not OK for now")))
-                                    note))
-                                 l)
+                 (list-join (map note->string l)
                             " "))
   (display ">1" port) ;; XX for now
   )
@@ -125,7 +130,10 @@
             (for-each ld l)))))
 
       (string?
-       (write l port)))))
+       (write l port))
+
+      (integer?
+       (note-display l port)))))
 
 (define (lilyscore->file l path)
   (call-with-output-file path
