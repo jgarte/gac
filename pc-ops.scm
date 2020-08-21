@@ -89,8 +89,31 @@
           '()))))
 
 
+;; (car-cdr-chord %trichords)
 (def (car-cdr-chord chord)
+     "'(0 1 2) => '((0) (1 2))"
      (let ((chosen-chord (choose-sc chord)))
-       (cons (list (car chosen-chord))
-             (list (cdr chosen-chord)))))
+       ;; (list (list (car chosen-chord))
+       ;;       (cdr chosen-chord))
+       `((,(car chosen-chord))
+         ,(cdr chosen-chord))))
 
+;; (high-note-rest-chord %trichords)
+(def (high-note-rest-chord chord)
+     "'(0 1 2) => '((2) (0 1))"
+     (let ((chosen-chord (choose-sc chord)))
+       (cons (list (last chosen-chord))
+             (list (butlast chosen-chord)))))
+
+(def (expand-chord chord)
+     "'(0 1 2) => '(-12 1 14)"
+     "'(0 1 2 3) => '(-12 1 2 15)"
+     (let ((chosen-chord (choose-sc chord)))
+       (append (list (- (car chosen-chord) 12))
+               (cdr (butlast chosen-chord))
+               (list (+ (last chosen-chord) 12)))))
+
+;; (def (expand-chord chord)
+;;      (let ((chose-chord (choose-sc chord)))
+;;        (append (- (car chosen-chord) 12)
+;;                (list (cdr)))))
