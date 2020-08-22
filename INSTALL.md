@@ -50,9 +50,11 @@ To update to upstream changes, run:
     git pull
     git submodule update
 
-then restart Gambit via `,q` or freshly starting Emacs. If you get
-errors or warnings, run `rm lib/*.o*` and restart Gambit again (this
-can happen when macros are changed and the modules using them have no
-changes themselves (the build system is currently too naive to track
-macro usage)).
+then restart Gambit via `,q` or freshly starting Emacs and `M-x
+run-scheme`. If there are no errors or warnings from the compilation,
+run `(run-tests)`. If there are no test failures then all is fine. If
+you get compiler errors or load warnings or test failures, run `rm
+lib/*.o*` and restart Gambit again (this can happen when macros are
+changed and the modules using them have no changes themselves (the
+build system is currently too naive to track macro usage)).
 
