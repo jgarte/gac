@@ -97,16 +97,16 @@
   "the whole part of the division of i by d, but in a way that it fits
 modulo--?"
   (if (negative? i)
-      (dec (quotient i d))
+      (dec (quotient (inc i) d))
       (quotient i d)))
 
 (TEST
- > (flub 10 12)
- 0
- > (flub 11 12)
- 0
  > (flub 12 12)
  1
+ > (flub 11 12)
+ 0
+ > (flub 10 12)
+ 0
  > (flub 0 12)
  0
  > (flub -1 12)
@@ -116,6 +116,8 @@ modulo--?"
  > (flub -11 12)
  -1
  > (flub -12 12)
+ -1
+ > (flub -13 12)
  -2)
 
 
