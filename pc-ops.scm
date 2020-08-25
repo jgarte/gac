@@ -122,7 +122,7 @@
 ;;        (append (- (car chosen-chord) 12)
 ;;                (list (cdr)))))
 
-(def (intervals->chord [(list-of integer?) is] [integer? p0])
+(def (intervals->chord [(ilist-of integer?) is] [integer? p0])
      ;; (-7 . (-6 -3 1 10))
      (cons p0 (if (null? is)
                   '()
