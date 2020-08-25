@@ -397,3 +397,4 @@
 (i/load "note")
 (i/load "lily")
 (i/load "example")
+(i/load "link")
