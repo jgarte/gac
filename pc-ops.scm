@@ -113,6 +113,10 @@
                (cdr (butlast chosen-chord))
                (list (+ (last chosen-chord) 12)))))
 
+(def (expand-chords chord)
+     (append (list (- (car chord) 12))
+             (list  (cadr chord))
+             (list (+ (last chord) 12))))
 ;; (def (expand-chord chord)
 ;;      (let ((chose-chord (choose-sc chord)))
 ;;        (append (- (car chosen-chord) 12)
