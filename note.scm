@@ -94,7 +94,8 @@
   (+ (* q d) r))
 
 (define (flub i d)
-  "the whole part of the dividion of i by d, but in a way that it fits modulo--?"
+  "the whole part of the division of i by d, but in a way that it fits
+modulo--?"
   (if (negative? i)
       (dec (quotient i d))
       (quotient i d)))
@@ -154,7 +155,45 @@
  "c"
  > (integer->lilynote -13)
  "b,"
- )
+ > (map integer->lilynote (iota 16 -37))
+ ("b,,,"
+  "c,,"
+  "cs,,"
+  "d,,"
+  "ds,,"
+  "e,,"
+  "f,,"
+  "fs,,"
+  "g,,"
+  "gs,,"
+  "a,,"
+  "as,,"
+  "b,,"
+  "c,"
+  "cs,"
+  "d,")
+ > (map integer->lilynote (iota 20 -3))
+ ("a"
+  "as"
+  "b"
+  "c'"
+  "cs'"
+  "d'"
+  "ds'"
+  "e'"
+  "f'"
+  "fs'"
+  "g'"
+  "gs'"
+  "a'"
+  "as'"
+  "b'"
+  "c''"
+  "cs''"
+  "d''"
+  "ds''"
+  "e''"))
+
 
 ;; (define (lilynote->integer str)
 ;;   )
