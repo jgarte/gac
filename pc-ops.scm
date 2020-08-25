@@ -123,13 +123,11 @@
 ;;                (list (cdr)))))
 
 (def (intervals->chord [(list-of integer?) is] [integer? p0])
-
      ;; (-7 . (-6 -3 1 10))
-     (if (null? is)
-         (cons p0 '())
-         (cons p0 (intervals->chord (cdr is) (+ (car is) p0))))
-     )
-
+     (cons p0 (if (null? is)
+                  '()
+                  (intervals->chord (cdr is)
+                                    (+ (car is) p0)))))
 
 (TEST
  > (intervals->chord '(1 3 4 9) -7)
