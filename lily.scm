@@ -69,9 +69,10 @@
                        ;; /notation/creating-and-referencing-contexts
                        ;; #index-new-contexts
                        (pmatch option
-                         (symbol?
-                          (display " " port)
-                          (display (symbol->string option) port))))
+                          (symbol?
+                            ;; e.g. "Staff" after #:new
+                           (display " " port)
+                           (display (symbol->string option) port))))
                      options)
            (pmatch v
 
@@ -117,6 +118,22 @@
                          (cdr l))
                (displayln "}" port))
 
+              ('annotation
+               ;; (lily '((1 4 5 6 7 4) (annotation below "hello")))
+               (let-list ;;(([symbol? updown] [string? txt]) (cdr l))
+                ((updown txt) (cdr l))
+                (-> symbol? updown)
+                (-> string? txt)
+                (display
+                 (case updown
+                   ((above up ^) "^")
+                   ((below down _) "_")
+                   (else
+                    (error "annotation needs ^ or _ as first argument"
+                           l)))
+                 port)
+                (write txt port)))
+              
               (else
                ;; should be a note symbol => a single chord
                (chord-display l port))))
