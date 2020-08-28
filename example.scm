@@ -32,5 +32,5 @@
   (let ((file "chords.ly"))
     (chords->file chords file)
     (when (zero? (xsystem "lilypond" file))
-      (xsystem "xpdf" (string-append (basename file ".ly") ".pdf")))))
+      (xsystem "xdg-open" (string-append (basename file ".ly") ".pdf")))))
 
