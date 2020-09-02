@@ -15,7 +15,7 @@
 (defmacro (FACT n)
   (assert* natural0? n
            (lambda (n)
-             XXX)))
+             (fact n))))
 
 (def f
      (lambda (m) (+ (FACT 10) m)))
@@ -69,3 +69,4 @@
 '() ;; what did we want ?
 
 
+;;(derivative (* x x) x)   (* 2 x)
