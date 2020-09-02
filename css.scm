@@ -6,10 +6,11 @@
              margin: (* (px 21) 2))))
 
 
-(def (fact n)
-     (warn "fact" n)
-     (if (zero? n) 1
-         (* n (fact (dec n)))))
+(both-times
+ (def (fact n)
+      (warn "fact" n)
+      (if (zero? n) 1
+          (* n (fact (dec n))))))
 
 (defmacro (FACT n)
   (assert* natural0? n
