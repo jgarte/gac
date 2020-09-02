@@ -11,7 +11,10 @@
      (if (zero? n) 1
          (* n (fact (dec n)))))
 
-'(defmacro (FACT ))
+(defmacro (FACT n)
+  (assert* natural0? n
+           (lambda (n)
+             XXX)))
 
 (def f
      (lambda (m) (+ (FACT 10) m)))
@@ -43,6 +46,25 @@
 ;;         '((+ 10 20) 30))
 
 (defmacro (foo expr)
-  (def v (quote ,expr))
-  (warn "v=" v)
+  (def v `(quote ,expr))
+  (warn "v=" (cj-desourcify v))
   `(list ,v `(list "The result is " ,,expr)))
+
+(def (t)
+     (foo (+ (error "nope" 10) 20)))
+
+'(defmacro (m+ [number? a] [number? b])
+   `(+ ,a ,b))
+;; *** ERROR IN #<procedure #20>, "/home/chris/gac/css.scm"@53.1 -- a does not match number?: (source* 1 "css.scm" 57 10)
+
+(defmacro (m+ a b)
+  (assert* number? a)
+  (assert* number? b)
+  `(+ ,a ,b))
+
+'(def (t2)
+     (m+ 1 "hello"))
+
+'() ;; what did we want ?
+
+
