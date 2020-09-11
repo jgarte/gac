@@ -1,22 +1,19 @@
 (require)
 
-'(define-module (gac sg1)
-  #:use-module (srfi srfi-1)
-
-  #:export (%monad
-            %dyads
-            %trichords
-            %tetrachords
-            %pentachords
-            %hexachords
-            %septachords
-            %octachords
-            %nonachords
-            %decachords
-            %undecachord
-            %dodecachord
-            %universe
-            %universe-alist))
+(export %monads
+        %dyads
+        %trichords
+        %tetrachords
+        %pentachords
+        %hexachords
+        %septachords
+        %octachords
+        %nonachords
+        %decachords
+        %undecachords
+        %dodecachords
+        %universe
+        %universe-alist)
 
 (define %monads '((0)))
 
