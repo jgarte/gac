@@ -402,5 +402,5 @@
 (i/load "pc-ops")
 (i/load "note")
 (i/load "lily")
-(i/load "example")
+(i/load "io")
 (i/load "link")
