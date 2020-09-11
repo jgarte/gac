@@ -1,6 +1,6 @@
 (require easy
          plants-csv
-         chords)
+         sg1)
 
 (defmacro (define-plant-aliases)
   `(begin
