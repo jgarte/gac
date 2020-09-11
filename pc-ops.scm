@@ -7,6 +7,7 @@
             transpose-all
 	    inversions
 	    reverse-all
+            intervals-chord
 	    get-sc
 	    append-sc
 	    cons-sc
