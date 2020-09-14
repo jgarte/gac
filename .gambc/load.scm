@@ -399,6 +399,7 @@
 
 (i/load "guile")
 (i/load "sg1")
+(i/load "musictypes")
 (i/load "pc-ops")
 (i/load "note")
 (i/load "lily")

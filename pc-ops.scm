@@ -1,4 +1,5 @@
-(require sg1)
+(require sg1
+         musictypes)
 
 '(define-module (gac pc-ops)
   #:use-module (gac sg1)
@@ -142,6 +143,24 @@
 ;;     (.cons 1)
 ;;     (.cons 0))
 
+(def (chord-shrink-progression [chord? chord])
+     ...)
+
+(TEST
+ > (chord-shrink-progression '(0 1 2 3))
+ ((0 1 2 3)
+  (0 1 2)
+  (0 1)
+  (0)))
+
+(def (chord-shrink-expand-progression [chord? chord])
+     '(if (= (length chord) 1)
+         (cons chord '())
+         (list (cons (car chord)
+                     (shrink-expand-chord (cdr chord)))))
+     (let (downwards (chord-shrink-progression))
+       (append downwards (cdr (reverse downwards)))))
+
 
 (TEST
  > (intervals->chord -7 '(1 3 4 9))
@@ -152,3 +171,15 @@
 '(def (foo? x)
      (and (number? x)
           (<= 10 x 30)))
+
+(TEST
+ > (chord-shrink-expand-progression '(0 1 2 3))
+ ((0 1 2 3)
+  (0 1 2)
+  (0 1)
+  (0)
+  (0 1)
+  (0 1 2)
+  (0 1 2 3)))
+ 
+ 
