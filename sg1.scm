@@ -1,22 +1,21 @@
 (require)
 
-'(define-module (gac sg1)
-  #:use-module (srfi srfi-1)
+(export %monads
+        %dyads
+        %trichords
+        %tetrachords
+        %pentachords
+        %hexachords
+        %septachords
+        %octachords
+        %nonachords
+        %decachords
+        %undecachords
+        %dodecachords
+        %universe
+        %universe-alist)
 
-  #:export (%monad
-            %dyads
-            %trichords
-            %tetrachords
-            %pentachords
-            %hexachords
-            %septachords
-            %octachords
-            %nonachords
-            %decachords
-            %undecachord
-            %dodecachord))
-
-(define %monad '(0))
+(define %monads '((0)))
 
 (define %dyads '((0 1) (0 2) (0 3) (0 4) (0 5) (0 6)))
 
@@ -147,6 +146,38 @@
                       (0 1 2 3 4 5 7 8 9 10)
                       (0 1 2 3 4 6 7 8 9 10)))
 
-(define %undecachord '(0 1 2 3 4 5 6 7 8 9 10))
+(define %undecachords '((0 1 2 3 4 5 6 7 8 9 10)))
 
-(define %dodecachord '(0 1 2 3 4 5 6 7 8 9 10 11))
+(define %dodecachords '((0 1 2 3 4 5 6 7 8 9 10 11)))
+
+(define %universe-wrong '(%monads
+                          %dyads
+                          %trichords
+                          %tetrachords
+                          %pentachords
+                          %hexachords
+                          %septachords
+                          %octachords
+                          %nonachords
+                          %decachords
+                          %undecachords
+                          %dodecachords))
+
+;; (define %universe (list %monads
+;;                         %dyads
+;;                         %trichords
+;;                         %tetrachords
+;;                         %pentachords
+;;                         %hexachords
+;;                         %septachords
+;;                         %octachords
+;;                         %nonachords
+;;                         %decachords
+;;                         %undecachords
+;;                         %dodecachords))
+
+(define %universe (=> %universe-wrong (.map eval)))
+
+(define %universe-alist (=> %universe-wrong
+                            (.map (lambda (sym) (cons sym (eval sym))))))
+

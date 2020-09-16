@@ -1,0 +1,354 @@
+Set class,Species
+0,Nymphaea odorata 
+0 1,Serenoa repens
+0 2,Acoelorraphe wrightii
+0 3,Sabal palmetto
+0 4,Thrinax radiata
+0 5,Roystonea regia 
+0 6,Coccothrinax argentata
+0 1 2,Ipomoea hederifolia
+0 1 3,Ipomoea microdactyla
+0 2 3,Ipomoea violacea
+0 1 4,Ipomoea imperati
+0 3 4,Ipomoea pes-caprae 
+0 1 5,Ipomoea tunissima 
+0 4 5,Ipomoea sagittata 
+0 1 6,Ipomoea cordatotriloba
+0 5 6,Ipomoea indica
+0 2 4,Ipomoea alba
+0 2 5,Jacquemontia curtisii
+0 3 5,Jacquemontia pentanthos
+0 2 6,Dichondra carolinensis 
+0 4 6,Calystegia sepium subsp. limnophila
+0 2 7,Cuscuta pentagona
+0 3 6,Evolvulus alsinoides var. alsinoides
+0 3 7,Evolvulus sericeus
+0 4 7,Evolvulus grisebachii 
+0 4 8,Stylisma villosa
+0 1 2 3,Tragia saxicola
+0 1 2 4,Tragia urens
+0 2 3 4,Euphorbia blodgettii
+0 1 3 4,Euphorbia bombensis
+0 1 2 5,Euphorbia garberi 
+0 3 4 5,Euphorbia hypericifolia 
+0 1 2 6,Euphorbia hyssopifolia
+0 4 5 6,Euphorbia thymifolia
+0 1 2 7,Euphorbia prostrata 
+0 1 4 5 ,Euphorbia porteriana
+0 1 5 6,Euphorbia ophthalmica
+0 1 6 7,Euphorbia maculata
+0 2 3 5,Euphorbia pergamena
+0 1 3 5,Euphorbia hirta
+0 2 4 5,Euphorbia deltoidea subsp. pinetorum
+0 2 3 6,Euphorbia deltoidea subsp. adhaerens
+0 3 4 6,Euphorbia deltoidea subsp. serpyllum
+0 1 3 6,Euphorbia deltoidea subsp. deltoidea
+0 3 5 6,Euphorbia conferta
+0 2 3 7,Euphorbia cumulicola
+0 4 5 7,Euphorbia mesembryanthemifolia
+0 1 4 6,Euphorbia trichotoma 
+0 2 5 6,Euphorbia inundata
+0 1 5 7,Euphorbia polyphylla
+0 2 6 7,Euphorbia pinetorum
+0 3 4 7,Euphorbia heterophylla
+0 1 4 7,Euphorbia cyathophora 
+0 3 6 7,Cnidoscolus stimulosus 
+0 1 4 8,Croton glandulosus var. septentrionalis
+0 3 4 8,Croton glandulosus var. floridanus
+0 1 5 8,Croton punctatus 
+0 2 4 6,Croton humilis
+0 2 4 7,Croton linearis
+0 3 5 7,Croton michauxii
+0 2 5 7,Caperonia castaneifolia
+0 2 4 8,Stillingia aquatica 
+0 2 6 8,Stillingia sylvatica 
+0 3 5 8,Astraea lobata
+0 2 5 8,Acalypha chamaedrifolia
+0 3 6 8,Acalypha ostryifolia
+0 3 6 9,Argythamnia blodgettii 
+0 1 3 7,Gymnanthes lucida 
+0 4 6 7,Hippomane mancinella
+0 1 2 3 4,Bulbophyllum pachyrachis 
+0 1 2 3 5,Camaridium micranthum
+0 2 3 4 5,Campylocentrum pachyrrhizum
+0 1 2 4 5,Eltroplectris calcarata
+0 1 3 4 5,Habenaria quinqueseta
+0 1 2 3 6,Habenaria repens
+0 3 4 5 6,Habenaria floribunda
+0 1 2 3 7,Habenaria nivea
+0 4 5 6 7,Platythelys querceticola
+0 1 2 5 6,Pelexia adnata
+0 1 4 5 6,Triphora gentianoides 
+0 1 2 6 7,Pteroglossaspis ecristata
+0 1 5 6 7,Oncidium ensatum
+0 2 3 4 6,Hexalectris spicata
+0 1 2 4 6,Corallorhiza wisteriana
+0 2 4 5 6,Polystachya concreta
+0 1 3 4 6,Lepanthopsis melanantha
+0 2 3 5 6,Pleurothallis gelida
+0 2 3 4 7,Heterotaxis sessilis
+0 3 4 5 7,Beloglottis costaricensis
+0 1 3 5 6,Cyclopogon cranichoides
+0 1 2 4 8,Cyclopogon elatus
+0 2 3 4 8,Sacoila lanceolata var. lanceolata
+0 1 2 5 7,Sacoila lanceolata var. paludicola
+0 2 5 6 7,Spiranthes amesiana
+0 1 2 6 8,Spiranthes eatonii
+0 1 3 4 7,Spiranthes floridana
+0 3 4 6 7,Spiranthes laciniata
+0 1 3 4 8,Spiranthes longilabris
+0 1 4 5 7,Spiranthes odorata
+0 2 3 6 7,Spiranthes praecox
+0 1 3 6 7,Spiranthes torta
+0 1 4 6 7,Spiranthes vernalis
+0 1 5 6 8,Liparis nervosa
+0 2 3 7 8,Epidendrum acuñ?ae 
+0 1 4 5 8,Epidendrum floridense
+0 3 4 7 8,Epidendrum rigidum 
+0 1 4 7 8,Epidendrum anceps
+0 2 3 5 7,Epidendrum nocturnum
+0 2 4 5 7,Ponthieva racemosa
+0 1 3 5 7,Ponthieva brittoniae
+0 2 4 6 7,Malaxis spicata
+0 2 3 5 8,Macradenia lutescens
+0 3 5 6 8,Encyclia tampensis
+0 2 4 5 8,Trichocentrum undulatum
+0 3 4 6 8,Trichocentrum carthagenense
+0 1 3 5 8,Dendrophylax porrectus
+0 3 5 7 8,Dendrophylax lindenii 
+0 2 3 6 8,Prosthechea cochleata
+0 2 5 6 8,Brassia caudata
+0 1 3 6 8,Cyrtopodium punctatum
+0 2 5 7 8,Calopogon barbatus
+0 1 4 6 8,Calopogon multiflorus
+0 2 4 7 8,Calopogon tuberosus
+0 1 3 6 9,Calopogon tuberosus var. simpsonii
+0 2 3 6 9,Calopogon pallidus
+0 1 4 6 9,Basiphyllaea corallicola
+0 3 5 8 9,Bletia patula
+0 2 4 6 8,Bletia purpurea
+0 2 4 6 9,Pogonia ophioglossoides
+0 2 4 7 9,Ionopsis utricularioides
+0 1 2 4 7,Eulophia alta
+0 3 5 6 7,Vanilla barbellata
+0 3 4 5 8,Vanilla dilloniana 
+0 1 2 5 8,Vanilla mexicana
+0 3 6 7 8,Vanilla phaeantha
+0 1 2 3 4 5,Mimosa quadrivalvis var. angustata
+0 1 2 3 4 6,Mimosa quadrivalvis var. floridana
+0 2 3 4 5 6,Mimosa strigillosa
+0 1 2 3 5 6,Neptunia pubescens
+0 1 3 4 5 6,Pithecellobium bahamense
+0 1 2 4 5 6,Pithecellobium keyense
+0 1 2 3 6 7,Pithecellobium unguis-cati
+0 1 4 5 6 7,Desmanthus virgatus
+0 1 2 5 6 7,Lysiloma latisiliquum 
+0 1 2 6 7 8,Vachellia macracantha
+0 2 3 4 5 7,Vachellia choriophylla
+0 1 2 3 5 7,Vachellia farnesiana var. farnesiana
+0 2 4 5 6 7,Vachellia farnesiana var. pinetorum
+0 1 3 4 5 7,Dalea feayi 
+0 2 3 4 6 7,Dalea pinnata var. adenopoda
+0 1 2 4 5 7,Dalea pinnata var. pinnata
+0 2 3 5 6 7,Dalea carnea var. carnea
+0 1 2 4 6 7,Dalea floridana
+0 1 3 5 6 7,Caesalpinia major
+0 1 3 4 6 7,Caesalpinia bonduc
+0 1 3 4 5 8,Senna ligustrina
+0 3 4 5 7 8,Senna mexicana var. chapmanii
+0 1 2 4 5 8,Senna obtusifolia
+0 3 4 6 7 8,Chamaecrista deeringiana
+0 1 4 5 6 8,Chamaecrista fasciculata
+0 2 3 4 7 8,Chamaecrista lineata var. keyensis
+0 1 2 4 7 8,Chamaecrista nictitans var. aspera
+0 1 4 6 7 8,Chamaecrista nictitans var. nictitans
+0 1 2 5 7 8,Sophora tomentosa var. truncata
+0 1 3 6 7 8,Dalbergia brownei
+0 1 3 4 7 8,Dalbergia ecastaphyllum
+0 1 4 5 7 8,Lupinus diffusus
+0 1 4 5 8 9,Piscidia piscipula 
+0 2 3 4 6 8,Crotalaria pumila
+0 2 4 5 6 8,Crotalaria rotundifolia 
+0 1 2 4 6 8,Aeschynomene americana
+0 2 4 6 7 8,Aeschynomene viscidula
+0 2 3 5 6 8,Desmanthus virgatus 
+0 1 3 4 6 8,Desmodium floridanum
+0 2 4 5 7 8,Desmodium incanum
+0 1 3 5 6 8,Desmodium lineatum
+0 2 3 5 7 8,Desmodium marilandicum 
+0 1 3 5 7 8,Desmodium paniculatum
+0 1 3 4 6 9,Desmodium strictum
+0 3 5 6 8 9,Galactia elliottii 
+0 1 3 5 6 9,Galactia floridana
+0 2 3 6 7 9,Galactia parvifolia
+0 1 3 6 7 9,Galactia pinetorum
+0 2 3 6 8 9,Galactia regularis
+0 1 4 5 7 9,Galactia striata
+0 2 4 5 8 9,Galactia volubilis 
+0 2 4 5 7 9,Indigofera miniata var. florida
+0 2 3 5 7 9,Phaseolus polystachios var. sinuatus
+0 2 4 6 7 9,Rhynchosia cinerea
+0 1 3 5 7 9,Rhynchosia michauxii
+0 2 4 6 8 9,Rhynchosia minima
+0 2 4 6 8 10,Rhynchosia parvifolia
+0 3 4 5 6 7,Rhynchosia precatoria
+0 1 2 3 4 7,Rhynchosia reniformis 
+0 1 2 3 4 8,Apios americana 
+0 1 2 3 7 8,Canavalia rosea
+0 3 4 5 6 8,Chapmannia floridana
+0 2 3 4 5 8,Sesbania herbacea
+0 3 5 6 7 8,Sesbania vesicaria
+0 1 2 3 5 8,Stylosanthes calcicola
+0 2 5 6 7 8,Stylosanthes hamata
+0 1 2 3 6 8,Vicia acutifolia
+0 1 2 3 6 9,Vigna luteola 
+0 2 3 6 7 8,Tephrosia hispidula
+0 1 2 5 6 8,Tephrosia rugelii
+0 3 4 7 8 9,Tephrosia chrysophylla
+0 1 2 5 6 9,Tephrosia florida 
+0 2 3 4 6 9,Tephrosia spicata
+0 3 5 7 8 9,Centrosema virginianum
+0 1 2 4 6 9,Clitoria mariana
+0 2 5 7 8 9,Zornia bracteata 
+0 1 2 4 7 9,Amorpha fruticosa
+0 1 2 5 7 9,Amorpha herbacea var. herbacea
+0 1 3 4 7 9,Indigofera caroliniana
+0 1 4 6 7 9,Erythrina herbacea
+0 1 2 3 4 5 6,Cyperus haspan
+0 2 3 4 5 6 7,Cyperus polystachyos
+0 1 2 3 4 5 7,Cyperus surinamensis
+0 3 4 5 6 7 8,Cyperus elegans
+0 1 2 3 4 5 8,Cyperus compressus
+0 1 3 4 5 6 7,Cyperus flavescens
+0 1 2 3 4 6 7,Cyperus articulatus
+0 1 2 4 5 6 7,Cyperus croceus
+0 1 2 3 5 6 7,Cyperus planifolius
+0 1 4 5 6 7 8,Cyperus distinctus
+0 1 2 3 4 7 8,Cyperus tetragonus
+0 1 2 5 6 7 8,Cyperus ligularis
+0 1 2 3 6 7 8,Cyperus lecontei
+0 2 3 4 5 6 8,Cyperus ovatus
+0 2 4 5 6 7 8,Cyperus strigosus
+0 1 2 3 4 6 8,Cyperus odoratus
+0 2 3 4 5 6 9,Cyperus floridanus
+0 1 2 3 4 6 9,Carex gigantea
+0 2 3 4 5 7 8,Carex longii
+0 1 3 4 5 6 8,Carex lupuliformis
+0 1 2 3 4 7 9,Carex vexans
+0 2 3 4 6 7 8,Remirea maritima
+0 1 2 4 5 6 8,Kyllinga odorata 
+0 1 3 5 6 7 8,Fuirena breviseta
+0 1 2 3 5 7 8,Fuirena scirpoidea
+0 1 2 4 6 7 8,Schoenus nigricans
+0 1 3 4 5 6 9,Bulbostylis stenophylla 
+0 1 2 3 5 6 9,Bulbostylis ciliatifolia
+0 1 2 4 5 6 9,Abildgaardia ovata
+0 1 4 5 6 7 9,Rhynchospora globularis 
+0 1 4 6 7 8 9,Rhynchospora tracyi 
+0 1 2 3 6 8 9,Rhynchospora fascicularis
+0 1 2 3 6 7 9,Rhynchospora grayi 
+0 1 2 5 7 8 9,Rhynchospora miliacea
+0 1 2 5 6 7 9,Rhynchospora megalocarpa
+0 1 3 4 5 8 9,Rhynchospora divergens
+0 1 2 4 5 8 9,Rhynchospora nitens
+0 1 2 5 6 8 9,Rhynchospora odorata 
+0 2 4 5 6 7 9,Rhynchospora microcarpa 
+0 2 3 4 5 7 9,Rhynchospora plumosa
+0 2 4 6 7 8 9,Rhynchospora corniculata
+0 1 2 3 5 7 9,Rhynchospora inundata
+0 2 3 5 6 7 9,Rhynchospora colorata
+0 2 3 4 6 7 9,Rhynchospora floridensis
+0 1 3 4 5 7 9,Rhynchospora latifolia
+0 2 4 5 6 8 9,Fimbristylis spadicea
+0 2 4 5 7 8 9,Fimbristylis autumnalis
+0 1 2 4 5 7 9 ,Fimbristylis dichotoma
+0 1 3 5 6 7 9,Fimbristylis puberula
+0 2 3 4 6 8 9,Fimbristylis caroliniana
+0 2 3 5 7 8 9,Scleria baldwinii
+0 1 2 4 6 7 9,Scleria lithosperma
+0 1 3 5 7 8 9,Scleria triglomerata
+0 1 2 4 6 8 9,Scleria reticularis
+0 1 3 4 6 7 9,Scleria ciliata 
+0 2 3 5 6 8 9,Scleria hirtella
+0 1 3 5 6 8 9,Scleria verticillata
+0 1 3 4 6 8 9,Eleocharis cellulosa 
+0 1 2 4 6 8 10,Eleocharis interstincta
+0 1 3 4 6 8 10,Eleocharis elongata
+0 1 3 5 6 8 10,Eleocharis flavescens
+0 2 3 5 6 7 8,Eleocharis geniculata
+0 1 2 3 5 6 8,Eleocharis baldwinii 
+0 1 3 4 5 7 8,Schoenoplectus tabernaemontani 
+0 1 3 4 6 7 8,Schoenoplectus pungens
+0 1 2 4 5 7 8,Cladium jamaicense
+0 1 2 3 4 5 6 7,Cenchrus echinatus
+0 2 3 4 5 6 7 8,Cenchrus incertus
+0 1 2 3 4 5 6 8,Setaria parviflora
+0 1 2 3 4 5 6 9,Sporobolus domingensis
+0 1 3 4 5 6 7 8,Sporobolus virginicus
+0 1 2 3 4 5 7 8,Panicum rigidulum
+0 1 2 4 5 6 7 8,Panicum amarum
+0 1 2 3 4 6 7 8,Panicum virgatum
+0 1 2 3 5 6 7 8,Panicum hemitomon
+0 1 2 3 4 5 8 9,Schizachyrium sanguineum
+0 1 2 3 4 7 8 9,Schizachyrium rhizomatum
+0 1 2 3 6 7 8 9,Schizachyrium gracile
+0 2 3 4 5 6 7 9,Andropogon ternarius
+0 2 4 5 6 7 8 9,Eustachys glauca
+0 1 2 3 4 5 7 9,Eustachys petraea
+0 1 3 4 5 6 7 9,Axonopus fissifolius
+0 2 3 4 5 6 8 9,Axonopus furcatus
+0 2 3 5 6 7 8 9 ,Saccharum giganteum
+0 1 2 3 4 6 7 9,Digitaria ciliaris
+0 1 2 4 5 6 7 9,Paspalum vaginatum
+0 2 3 4 5 7 8 9,Paspalum caespitosum
+0 1 3 5 6 7 8 9,Paspalum conjugatum
+0 1 2 3 4 6 8 9,Paspalum setaceum
+0 1 2 4 6 7 8 9,Paspalum monostachyum
+0 1 2 3 5 7 8 9,Urochloa adspersa
+0 1 3 4 5 6 8 9,Dichanthelium dichotomum 
+0 1 3 4 6 7 8 9,Dichanthelium aciculare
+0 1 2 3 5 6 8 9,Dichanthelium commutatum
+0 1 3 4 5 7 8 9,Dichanthelium strigosum var. glabrescens
+0 1 2 4 5 6 8 9,Dichanthelium portoricense
+0 1 2 4 5 7 8 9,Lasiacis divaricata
+0 1 2 3 4 6 8 10,Aristida gyrans
+0 1 2 3 5 7 9 10,Aristida purpurascens
+0 1 2 3 5 6 8 10,Aristida stricta
+0 1 2 3 5 7 8 10,Uniola paniculata
+0 1 2 4 5 6 8 10,Spartina bakeri 
+0 1 2 4 6 7 8 10,Spartina patens
+0 1 3 4 5 7 8 10,Spartina spartinae 
+0 1 2 4 6 7 9 10,Phragmites australis
+0 1 2 4 5 7 8 10,Sorghastrum secundum
+0 1 3 4 6 7 9 10,Andropogon glomeratus var. pumilus
+0 2 3 4 6 7 8 9,Eragrostis elliottii 
+0 1 2 3 5 6 7 9,Muhlenbergia capillaris 
+0 1 2 3 4 5 6 7 8,Tillandsia usneoides
+0 1 2 3 4 5 6 7 9,Tillandsia recurvata
+0 2 3 4 5 6 7 8 9,Tillandsia pruinosa 
+0 1 3 4 5 6 7 8 9,Tillandsia paucifolia
+0 1 2 3 4 5 6 8 9 ,Tillandsia balbisiana 
+0 1 2 4 5 6 7 8 9,Tillandsia setacea
+0 1 2 3 4 5 7 8 9,Tillandsia simulata
+0 1 2 3 5 6 7 8 9,Tillandsia variabilis
+0 1 2 3 4 6 7 8 9,Tillandsia x floridana
+0 1 2 3 4 5 6 8 10,Tillandsia x smalliana 
+0 1 2 3 4 5 7 9 10,Tillandsia fasciculata var. densispica
+0 1 2 3 4 5 7 8 10,Tillandsia fasciculata var. clavispica
+0 1 2 3 4 6 8 9 10,Tillandsia fasciculata var. fasciculata
+0 1 2 3 4 6 7 8 10,Tillandsia flexuosa
+0 1 2 3 5 6 7 8 10,Tillandsia utriculata
+0 1 2 3 4 6 7 9 10,Guzmania monostachia
+0 1 2 3 5 6 8 9 10,Catopsis floribunda
+0 1 2 3 5 6 7 9 10,Catopsis nutans
+0 1 2 4 5 6 8 9 10,Catopsis berteroniana
+0 1 2 3 4 5 6 7 8 9,Justicia angusta
+0 1 2 3 4 5 6 7 8 10,Elytraria caroliniensis var. angustifolia
+0 1 2 3 4 5 6 7 9 10,Dyschoriste angusta
+0 1 2 3 4 5 6 8 9 10,Ruellia succulenta 
+0 1 2 3 4 5 7 8 9 10,Stenandrium dulce
+0 1 2 3 4 6 7 8 9 10,Avicennia germinans
+0 1 2 3 4 5 6 7 8 9 10,Zamia integrifolia
+0 1 2 3 4 5 6 7 8 9 10 11,Pleopeltis polypodioides var. michauxiana
+
+

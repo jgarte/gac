@@ -52,7 +52,7 @@
                  (list-join (map note->string l)
                             " "))
   (display ">1" port) ;; XX for now
-  )
+  (newline port))
 
 (define (lilyscore-display l port)
   (let ld ((l l))
@@ -113,8 +113,7 @@
               ('lexps
                (displayln "{" port)
                (for-each (lambda (chord)
-                           (chord-display chord port)
-                           (newline port))
+                           (chord-display chord port))
                          (cdr l))
                (displayln "}" port))
 
@@ -201,7 +200,10 @@
 }
 \\score {
  \\new Staff {
- <c' e' g'>1 <a f,>1 <as' gs'''' b''>1}
+ <c' e' g'>1
+ <a f,>1
+ <as' gs'''' b''>1
+}
  \\layout {
 }
  \\midi {

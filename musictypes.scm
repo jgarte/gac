@@ -11,3 +11,5 @@
   (defclass (pitch [pitch-integer? integer]))
   (defclass (pitchclass [pitchclass-integer? integer])))
 
+
+(def chord? (list-of integer?))

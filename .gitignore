@@ -1,3 +1,4 @@
+.repl_histories/
 .test-*.scm
 *.ly
 *.midi
