@@ -143,15 +143,15 @@
 ;;     (.cons 1)
 ;;     (.cons 0))
 
-(def (chord-shrink-progression [chord? chord])
-     ...)
+;;(def (chord-shrink-progression [chord? chord])
+;;     ...)
 
-(TEST
- > (chord-shrink-progression '(0 1 2 3))
- ((0 1 2 3)
-  (0 1 2)
-  (0 1)
-  (0)))
+;;(TEST
+;; > (chord-shrink-progression '(0 1 2 3))
+;; ((0 1 2 3)
+;;  (0 1 2)
+;;  (0 1)
+;;  (0)))
 
 (def (chord-shrink-expand-progression [chord? chord])
      '(if (= (length chord) 1)
@@ -172,14 +172,14 @@
      (and (number? x)
           (<= 10 x 30)))
 
-(TEST
- > (chord-shrink-expand-progression '(0 1 2 3))
- ((0 1 2 3)
-  (0 1 2)
-  (0 1)
-  (0)
-  (0 1)
-  (0 1 2)
-  (0 1 2 3)))
+;;(TEST
+;; > (chord-shrink-expand-progression '(0 1 2 3))
+;; ((0 1 2 3)
+;;  (0 1 2)
+;;  (0 1)
+;;  (0)
+;;  (0 1)
+;;  (0 1 2)
+;;  (0 1 2 3)))
  
  
