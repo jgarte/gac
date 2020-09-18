@@ -1,3 +1,4 @@
+(require easy)
 
 (def (pitch-integer? v)
      (and (exact-integer? v)
