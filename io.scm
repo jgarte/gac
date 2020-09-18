@@ -1,6 +1,7 @@
 (require pc-ops
          sg1
-         lily)
+         lily
+         plants)
 
 (export chords->lilyscore
         chords->file
@@ -60,9 +61,12 @@
       (lilyscore-display sc (current-output-port)))
     (lilyscore->file sc file)))
 
-(define (lily chords)
+(define (_lily chords)
   (let ((file "chords.ly"))
     (chords->file chords file)
     (when (zero? (xsystem "lilypond" file))
       (xsystem pdf-viewer (string-append (basename file ".ly") ".pdf")))))
+
+(define (lily chords)
+  (_lily (.lily-annotate chords)))
 

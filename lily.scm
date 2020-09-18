@@ -120,9 +120,11 @@
               ('annotation
                ;; (lily '((1 4 5 6 7 4) (annotation below "hello")))
                (let-list ;;(([symbol? updown] [string? txt]) (cdr l))
-                ((updown txt) (cdr l))
+                ((updown txt . chords) (cdr l))
                 (-> symbol? updown)
                 (-> string? txt)
+                (unless (null? chords)
+                  (lilyscore-display chords port))
                 (display
                  (case updown
                    ((above up ^) "^")
@@ -212,3 +214,4 @@
 "
  )
 
+;; XXX add tests for annotation feature

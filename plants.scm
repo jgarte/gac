@@ -84,3 +84,31 @@
  Ipomoea-hederifolia)
 
 
+
+(def. (any.lily-annotate v)
+  v)
+
+(def. (list.lily-annotate v)
+  (map .lily-annotate v))
+
+(def. (genus-chords.lily-annotate v)
+  (maybe-show-genus v))
+
+(def. (species-chord.lily-annotate v)
+  (xcond ((maybe-show-species v)
+          => (lambda (species-variable)
+               `(annotation
+                 up
+                 ,(variable-symbol->plain-name species-variable)
+                 ,v)))))
+
+(TEST
+ > (.lily-annotate '(0 0 1))
+ (0 0 1)
+ > (.lily-annotate '(0 1 2))
+ (annotation up "Ipomoea hederifolia" (0 1 2))
+ > (.lily-annotate '((1 2 3) (0 1 2) (0) (3 4 5)))
+ ((1 2 3)
+  (annotation up "Ipomoea hederifolia" (0 1 2))
+  (annotation up "Nymphaea odorata" (0))
+  (3 4 5)))

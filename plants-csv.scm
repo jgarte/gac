@@ -28,9 +28,23 @@
                     c))))
          .string))
 
+(def (variable-symbol->plain-name [symbol? str])
+     (=> str
+         .string
+         .list
+         (.map (lambda (c)
+                 (case c
+                   ((#\-) #\space)
+                   (else
+                    c))))
+         .string))
+
 (TEST
  > (plain-name->variable-name "Foo bar")
- "Foo-bar")
+ "Foo-bar"
+ > (variable-symbol->plain-name (.symbol #))
+ "Foo bar")
+
 
 "
 todo:
