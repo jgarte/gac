@@ -1,4 +1,4 @@
-.repl_histories/
+.repl_histories
 .test-*.scm
 *.ly
 *.midi
