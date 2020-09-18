@@ -341,7 +341,7 @@
   '(c/load "lib/posix/nice")
   '(c/load "lib/pseudorandom")
   '(c/load "lib/queue")
-  '(c/load "lib/read-csv-util")
+  (c/load "lib/read-csv-util")
   (c/load "lib/spreadsheet-reference")
   (c/load "lib/read-csv")
   '(c/load "lib/realunixtime")
