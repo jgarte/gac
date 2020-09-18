@@ -72,28 +72,3 @@ todo:
                    cat-Maybes)))
 
 
-
-'(def (f v)
-     (if (pair? v)
-         ;; instead of: (+ (* (car v) (cdr v)) (* 5 (cdr v)) 10)
-         (let ((x (car v))
-               (y (cdr v)))
-           (+ (* x y) (* 5 y) 10))
-         '()))
-
-(def (f1 a b c)
-      (let (v (read))
-       (let ((x (car v))
-             (y (cdr v)))
-         (+ (* x y) (* 5 y) 10))))
-
-(def (f2 a b c)
-      (let-pair ((x y) (read))
-        (+ (* x y) (* 5 y) 10)))
-
-
-(def (f3 a b c)
-      (let ((x (car (read)))
-            (y (cdr (read))))
-        (+ (* x y) (* 5 y) 10)))
-
