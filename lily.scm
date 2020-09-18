@@ -184,8 +184,11 @@
        (#:score
         ((#:new Staff
                 ((C4 E4 G4)
-                 (A3 F2)
-                 (10 44 23)))
+                 (A3 F2) (annotation down "Foo")
+                 (10 44 23)
+                 (annotation up "Bar"
+                             (11 44 23)
+                             (10 44 23))))
          (#:layout ())
          (#:midi ())))))
  > (tst tval)
@@ -204,14 +207,13 @@
  \\new Staff {
  <c' e' g'>1
  <a f,>1
- <as' gs'''' b''>1
-}
+ _\"Foo\" <as' gs'''' b''>1
+ <b' gs'''' b''>1
+<as' gs'''' b''>1
+^\"Bar\"}
  \\layout {
 }
  \\midi {
 }
 }
-"
- )
-
-;; XXX add tests for annotation feature
+")
