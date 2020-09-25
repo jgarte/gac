@@ -45,15 +45,15 @@
 (define debug? #t)
 
 (define (chords->lilyscore chords)
-  `((#:version "2.18")
-    (#:language "english")
-    (#:header ((=tagline "")
-               (=author "")))
-    (#:score
-     ((#:new Staff
-             (,@chords))
-      (#:layout ())
-      (#:midi ())))))
+  `((version: "2.18")
+    (language: "english")
+    (header: ((=tagline "")
+              (=author "")))
+    (score:
+     ((new: Staff
+            (,@chords))
+      (layout: ())
+      (midi: ())))))
 
 (define (chords->file chords file)
   (let ((sc (chords->lilyscore chords)))
