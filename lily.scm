@@ -60,6 +60,12 @@
       (pair?
 
        (define (process-rest)
+         ;; Example: `(new: Staff (textLengthOn: (1 3 4)))` translated
+         ;; to `\new Staff { \textLengthOn <c' cs' e'>1 }`. We have
+         ;; already processed the first of l, `\new`; of the
+         ;; remainder, the last one is a scope "{ }" or otherwise
+         ;; something to recurse into; the values inbetween are
+         ;; options, like `Staff`.
          (let* ((r (cdr l))
                 (v (last r))
                 (options (butlast r)))
@@ -70,7 +76,7 @@
                        ;; #index-new-contexts
                        (pmatch option
                           (symbol?
-                            ;; e.g. "Staff" after #:new
+                            ;; e.g. `Staff`
                            (display " " port)
                            (display (symbol->string option) port))))
                      options)
