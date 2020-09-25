@@ -51,7 +51,7 @@
               (=author "")))
     (score:
      ((new: Staff
-            (,@chords))
+            (textLengthOn: ,@chords (clef: bass) ,@morechords))
       (layout: ())
       (midi: ())))))
 
