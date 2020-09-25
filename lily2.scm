@@ -7,23 +7,22 @@
 
 (def lp-value? (either string? real?))
 
-(def (keyword.lilypond-bag key)
+(def. (keyword.lilypond-bag key)
      ;; XX should check for valid lilypond symbol names
      (list "\\" (keyword->string key)))
 
-(def (lp-value.lilypond-bag v)
-     (xcond ((string? v)
-             ;; XX may not always be the right way to print strings for
-             ;; lilypond
-             (object->string v))
-            ((real? v)
-             (list "#" (object->string v)))))
+(def. (string.lilypond-bag v)
+  ;; XX may not always be the right way to print strings for lilypond
+  (object->string v))
+
+(def. (real.lilypond-bag v)
+  (list "#" (object->string v)))
 
 (defclass (lp-setting [keyword? key] [lp-value? value])
   (defmethod (lilypond-bag _) -> string?
-    (list (keyword.lilypond-bag key)
+    (list (.lilypond-bag key)
           " = "
-          (lp-value.lilypond-bag value))))
+          (.lilypond-bag value))))
 
 
 
