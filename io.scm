@@ -1,6 +1,7 @@
 (require pc-ops
          sg1
-         lily)
+         lily
+         plants)
 
 (export chords->lilyscore
         chords->file
@@ -44,15 +45,15 @@
 (define debug? #t)
 
 (define (chords->lilyscore chords)
-  `((#:version "2.18")
-    (#:language "english")
-    (#:header ((=tagline "")
-               (=author "")))
-    (#:score
-     ((#:new Staff
-             (,@chords))
-      (#:layout ())
-      (#:midi ())))))
+  `((version: "2.18")
+    (language: "english")
+    (header: ((=tagline "")
+              (=author "")))
+    (score:
+     ((new: Staff
+            (textLengthOn: ,@chords (clef: bass) ,@morechords))
+      (layout: ())
+      (midi: ())))))
 
 (define (chords->file chords file)
   (let ((sc (chords->lilyscore chords)))
@@ -60,9 +61,12 @@
       (lilyscore-display sc (current-output-port)))
     (lilyscore->file sc file)))
 
-(define (lily chords)
+(define (_lily chords)
   (let ((file "chords.ly"))
     (chords->file chords file)
     (when (zero? (xsystem "lilypond" file))
       (xsystem pdf-viewer (string-append (basename file ".ly") ".pdf")))))
+
+(define (lily chords)
+  (_lily (.lily-annotate chords)))
 

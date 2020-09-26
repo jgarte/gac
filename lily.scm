@@ -60,6 +60,12 @@
       (pair?
 
        (define (process-rest)
+         ;; Example: `(new: Staff (textLengthOn: (1 3 4)))` translated
+         ;; to `\new Staff { \textLengthOn <c' cs' e'>1 }`. We have
+         ;; already processed the first of l, `\new`; of the
+         ;; remainder, the last one is a scope "{ }" or otherwise
+         ;; something to recurse into; the values inbetween are
+         ;; options, like `Staff`.
          (let* ((r (cdr l))
                 (v (last r))
                 (options (butlast r)))
@@ -70,7 +76,7 @@
                        ;; #index-new-contexts
                        (pmatch option
                           (symbol?
-                            ;; e.g. "Staff" after #:new
+                            ;; e.g. `Staff`
                            (display " " port)
                            (display (symbol->string option) port))))
                      options)
@@ -120,9 +126,11 @@
               ('annotation
                ;; (lily '((1 4 5 6 7 4) (annotation below "hello")))
                (let-list ;;(([symbol? updown] [string? txt]) (cdr l))
-                ((updown txt) (cdr l))
+                ((updown txt . chords) (cdr l))
                 (-> symbol? updown)
                 (-> string? txt)
+                (unless (null? chords)
+                  (lilyscore-display chords port))
                 (display
                  (case updown
                    ((above up ^) "^")
@@ -182,8 +190,11 @@
        (#:score
         ((#:new Staff
                 ((C4 E4 G4)
-                 (A3 F2)
-                 (10 44 23)))
+                 (A3 F2) (annotation down "Foo")
+                 (10 44 23)
+                 (annotation up "Bar"
+                             (11 44 23)
+                             (10 44 23))))
          (#:layout ())
          (#:midi ())))))
  > (tst tval)
@@ -202,13 +213,13 @@
  \\new Staff {
  <c' e' g'>1
  <a f,>1
- <as' gs'''' b''>1
-}
+ _\"Foo\" <as' gs'''' b''>1
+ <b' gs'''' b''>1
+<as' gs'''' b''>1
+^\"Bar\"}
  \\layout {
 }
  \\midi {
 }
 }
-"
- )
-
+")
